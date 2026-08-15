@@ -378,7 +378,7 @@ acceptConsentBtn.addEventListener('click', async (event) => {
     closeProgressModal();
     setStatus(err.message || 'Could not load default image.', 'err');
   }
-  
+
   refreshSourceControls();
   setStatus('Consent accepted.', 'ok');
 });

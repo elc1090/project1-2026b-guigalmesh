@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    color: white;
+    padding: 1rem 2rem;
+    position: relative
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* === ESTILOS MOBILE (Padrão) === */
+
+.nav-links {
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+.nav-links a.hover {
+    background-color: #555;
+}
+
+.nav-links li {
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+
+.nav-links a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    transition: background-color 0.2s;
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-toggle::before,
+.hamburger,
+.menu-toggle::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+/* === ESTILOS DESKTOP (A partir de 768px) === */
+
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background-color: transparent;
+    }
+
+    .nav-links li {
+        border-bottom: none;
+    }
+
+    .nav-links a {
+        padding: 0.5rem 1rem;
+    }
+
+    .nav-links a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+    }
+}
