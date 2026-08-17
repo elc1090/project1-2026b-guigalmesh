@@ -5,42 +5,38 @@
     <title>Local AI benchmarks</title>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="brand">
-            <a href="#">Website Logo</a>
+            Local AI
         </div>
-
-        <button class="menu-toggle" aria-label="Abrir menu">
-            <span class="hamburger"></span>
-        </button>
-
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#efficientdet-lite0">Efficientdet-lite0</a></li>
-            <li><a href="#smolvlm">SmolVLM</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
     </nav>
+    <main>
+        <h1 class="title">Models to benchmark</h1>
+        <section class="models">
 
-    <h1>Models to benchmark</h1>
-    <section>
-        <div class="model-description-card">
-            <h3>Efficientdet-lite0</h3>
-            <p>Developed by Google, <strong>EfficientDet-Lite0</strong> is built purely for <strong>Object Detection</strong>.</p>
-            <p>It belongs to a family of models optimized to run on resource-constrained devices. Its job is straightforward: you feed it an image, and it returns bounding boxes around the objects it recognizes, along with what they are (e.g., person, car, dog) and a confidence score.</p>
-            <a href="demos/efficientdet-lite0-benchmark/index.html"><button>Go to model 1</button></a>
-        </div>
-        <div class="model-description-card">
-            <h3>SmolVLM</h3>
-            <p>It actually <em>understands</em> the image. Created by Hugging Face, SmolVLM is a Vision-Language Model. This means it processes text and images simultaneously. Instead of drawing boxes, it chats with you about what it sees.</p>
-            <a href="demos/smolvlm-benchmark/index.html"><button>Go to model 2</button></a>
-        </div>
-    </section>
-    <footer>
-        <p>Site escrito por Guilherme Martini para disciplina ELC1090 "Desenvolvimento de software para Web"</p>
+            <div class="card">
+                <div class="card__title">EfficientDet-Lite0</div>
+                <div class="card__description">Built purely for object detection</div>
+                <button type="button" class="card__button">Check Out</button>
+                <div class="card__footer">Developed by: Google</div>
+            </div>
+
+            <div class="card">
+                <div class="card__title">SmolVLM</div>
+                <div class="card__description">A model that understands the image</div>
+                <button type="button" class="card__button">Check Out</button>
+                <div class="card__footer">Developed by: Hugging Face</div>
+            </div>
+        </section>
+    </main>
+    <footer class="simple-footer">
+        <p class="simple-footer__text">
+            Site escrito por <strong>Guilherme Martini</strong> para disciplina ELC1090 "Desenvolvimento de software para Web"
+        </p>
     </footer>
 </body>
 </html>
