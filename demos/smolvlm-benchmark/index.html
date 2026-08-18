@@ -108,6 +108,29 @@
       cursor: not-allowed;
     }
 
+    .link-button {
+      border: none;
+      display: inline-flex;
+      align-items: start;
+      flex-direction: column;
+      margin-top: 1rem;
+      font-family: inherit;
+      text-decoration: none;
+
+      width: fit-content;
+      margin: 0 0 16px 0;
+
+      padding: 0.8rem 1.5rem;
+
+      background-color: var(--text);
+      color: var(--line);
+      border-radius: 16px;
+      font-weight: bold;
+
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
     textarea {
       width: 100%;
       min-height: 330px;
@@ -162,6 +185,7 @@
 </head>
 <body>
   <div class="wrap">
+    <a href="../../index.html" class="link-button">Voltar</a>
     <div class="card">
       <h1>SmolVLM Mobile Lab</h1>
       <div class="muted tiny">

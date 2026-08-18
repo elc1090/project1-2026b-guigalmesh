@@ -21,6 +21,8 @@
     }
 
     body {
+      display: flex;
+      align-items: center;
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
@@ -106,6 +108,29 @@
     button:disabled {
       opacity: 0.55;
       cursor: not-allowed;
+    }
+
+    .link-button {
+      border: none;
+      display: inline-flex;
+      align-items: start;
+      flex-direction: column;
+      margin-top: 1rem;
+      font-family: inherit;
+      text-decoration: none;
+
+      width: fit-content;
+      margin: 0 0 16px 0;
+
+      padding: 0.8rem 1.5rem;
+
+      background-color: var(--text);
+      color: var(--line);
+      border-radius: 16px;
+      font-weight: bold;
+
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
     textarea {
@@ -229,11 +254,12 @@
 
     @keyframes spin {
       to { transform: rotate(360deg); }
-    }    
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
+    <a href="../../index.html" class="link-button">Voltar</a>
     <div class="card">
       <h1>EfficientDet-Lite0 Benchmark Demo</h1>
       <div class="muted tiny">
@@ -300,7 +326,7 @@
       <div class="spinner"></div>
       <div id="progressModalText" class="muted">Processando...</div>
     </div>
-  </dialog>  
+  </dialog>
 
   <script type="module" src="../../src/demos/efficientdet-lite0-benchmark/app.js"></script>
 </body>

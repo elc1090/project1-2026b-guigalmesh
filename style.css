@@ -82,19 +82,17 @@ body {
 .card__button {
   border: none;
   font-family: inherit;
+  text-decoration: none;
 
-  /* Espaço dentro do botão para ele não ficar esmagado */
   padding: 0.8rem 1.5rem;
 
-  /* Visual do botão */
   background-color: var(--text);
   color: var(--line);
   border-radius: 16px;
   font-weight: bold;
 
-  /* Interação */
   cursor: pointer;
-  transition: all 0.3s ease; /* Dica: use para fazer o hover acontecer de forma suave (ex: 0.3s) */
+  transition: all 0.3s ease;
 }
 
 .card__button:active {
