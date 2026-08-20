@@ -22,7 +22,6 @@ const declineConsentBtn = document.getElementById('declineConsentBtn');
 const progressModal = document.getElementById('progressModal');
 const progressModalText = document.getElementById('progressModalText');
 
-
 let currentImageDataUrl = null;
 let workerReady = false;
 let modelReady = false;
@@ -228,6 +227,34 @@ async function loadDefaultImage() {
   refreshButtons();
 }
 
+function buildTable(json_payload) {
+  const objectScoreTable = document.getElementById('objectScoreTable');
+  const detectionsArray = json_payload.detections;
+
+  while (objectScoreTable.rows.length > 1) {
+    objectScoreTable.deleteRow(1);
+  }
+
+  for (const detection of detectionsArray) {
+    if (!detection.categories || detection.categories.length === 0) continue;
+
+    const category = detection.categories[0];
+
+    const newRow = objectScoreTable.insertRow(-1);
+
+    const nameCell = newRow.insertCell(0);
+    nameCell.textContent = category.categoryName;
+
+    const scoreCell = newRow.insertCell(1);
+
+    scoreCell.textContent = category.score;
+
+    const scorePercentCell = newRow.insertCell(2);
+
+    scorePercentCell.textContent = (category.score * 100).toFixed(2) + '%';
+  }
+}
+
 imageInput.addEventListener('change', async (event) => {
   const file = event.target.files?.[0];
   if (!file) {
@@ -306,6 +333,8 @@ analyzeBtn.addEventListener('click', async () => {
       total_analyze_ms: totalAnalyzeMs
     };
 
+    console.log(resultPayload);
+
     outputEl.textContent = JSON.stringify(resultPayload, null, 2);
 
     const detections = resultPayload.parsed_json?.detections || [];
@@ -342,6 +371,8 @@ analyzeBtn.addEventListener('click', async () => {
         config
       }
     });
+
+    buildTable(resultPayload.parsed_json);
 
     await sendSubmission(sharedConfig.apiEndpoint, submission);
 
@@ -389,6 +420,7 @@ declineConsentBtn.addEventListener('click', (event) => {
   disableAllInputs();
   setStatus('Consent is required to use the benchmark.', 'err');
 });
+
 
 runner.init();
 refreshSourceControls();

@@ -252,6 +252,43 @@
       animation: spin 1s linear infinite;
     }
 
+    .object-table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: left;
+    }
+
+    .object-table th {
+      background-color: #f8fafc;
+      font-weight: 600;
+      font-size: 0.80rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid;
+      padding: 1rem;
+      border-bottom: 2px solid var(--muted, #e2e8f0);
+    }
+
+    .object-table td{
+      border-bottom: 1px solid var(--muted, #e2e8f0);
+      color: #334155;
+      text-align: left;
+      padding: 1rem;
+    }
+
+    .object-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .object-table tr:nth-child(even) {
+      background-color: #fcfcfc;
+    }
+
+    .object-table tr:hover {
+      background-color: #f1f5f9;
+      transition: background-color 0.2s ease-in-out;
+    }
+
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
@@ -286,6 +323,16 @@
         <div id="statusDot" class="dot"></div>
         <div id="statusText" class="muted">Starting worker...</div>
       </div>
+    </div>
+
+    <div class="card">
+      <table class="object-table" id="objectScoreTable">
+        <tr>
+          <th>Object</th>
+          <th>Score</th>
+          <th>Percentage</th>
+        </tr>
+      </table>
     </div>
 
     <div class="card">
