@@ -80,6 +80,37 @@ function safeParseConfig() {
   return JSON.parse(configInput.value);
 }
 
+function buildTable(json_payload) {
+
+
+  const objectScoreTable = document.getElementById('objectScoreTable');
+  const detectionsArray = json_payload.detections;
+
+  while (objectScoreTable.rows.length > 1) {
+    objectScoreTable.deleteRow(1);
+  }
+
+  for (const detection of detectionsArray) {
+    if (!detection.categories || detection.categories.length === 0) continue;
+
+    const category = detection.categories[0];
+
+    const newRow = objectScoreTable.insertRow(-1);
+
+    const nameCell = newRow.insertCell(0);
+    nameCell.textContent = category.categoryName;
+
+    const scoreCell = newRow.insertCell(1);
+
+    scoreCell.textContent = category.score;
+
+    const scorePercentCell = newRow.insertCell(2);
+
+    scorePercentCell.textContent = (category.score * 100).toFixed(2) + '%';
+  }
+}
+
+
 async function blobToDataUrl(blob) {
   return await new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -163,6 +194,9 @@ analyzeBtn.addEventListener('click', async () => {
     };
 
     outputEl.textContent = JSON.stringify(resultPayload, null, 2);
+
+    //console.log(resultPayload.parsed_json);
+    //buildTable(resultPayload.parsed_json);
 
     try {
       setStatus('Collecting environment...', 'busy');

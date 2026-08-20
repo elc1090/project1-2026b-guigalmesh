@@ -333,7 +333,7 @@ analyzeBtn.addEventListener('click', async () => {
       total_analyze_ms: totalAnalyzeMs
     };
 
-    console.log(resultPayload);
+    buildTable(resultPayload.parsed_json);
 
     outputEl.textContent = JSON.stringify(resultPayload, null, 2);
 
@@ -371,8 +371,6 @@ analyzeBtn.addEventListener('click', async () => {
         config
       }
     });
-
-    buildTable(resultPayload.parsed_json);
 
     await sendSubmission(sharedConfig.apiEndpoint, submission);
 
